@@ -275,7 +275,9 @@ server.registerTool(
         text: {
           format: {
             type: "json_schema",
-            schema: RESPONSE_SCHEMA,
+            name: RESPONSE_SCHEMA.name,
+            schema: RESPONSE_SCHEMA.schema,
+            strict: true,
           },
         },
       };
