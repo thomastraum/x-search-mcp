@@ -19,17 +19,31 @@ npm run build
 
 ## Codex MCP config
 
-Add this to your Codex `config.toml`, adjusting the path to match where you
-cloned the repository:
+Add this to your Codex `config.toml`. Replace the path with the real
+`dist/index.js` path from your local clone.
 
 ```toml
 [mcp_servers.x_search]
 command = "node"
-args = ["/absolute/path/to/x-search-mcp/dist/index.js"]
+args = ["/path/to/your/x-search-mcp/dist/index.js"]
 
 [mcp_servers.x_search.env]
 XAI_API_KEY = "xai-your-key-here"
 ```
+
+On Windows, escape backslashes in TOML strings:
+
+```toml
+[mcp_servers.x_search]
+command = "node"
+args = ["C:\\Users\\tt\\Documents\\code\\x-search-mcp\\dist\\index.js"]
+
+[mcp_servers.x_search.env]
+XAI_API_KEY = "xai-your-key-here"
+```
+
+Do not paste the placeholder path as-is. If Codex shows `MCP startup failed:
+handshaking with MCP server failed`, first check that the configured file exists.
 
 Restart Codex after changing MCP config.
 
